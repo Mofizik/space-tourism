@@ -85,16 +85,31 @@ html{
     display: flex;
     gap: 32px;
 }
-.nav-list li{
+.nav-list li {
     font-family: var(--font-barlow-condensed);
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 200;
-    font-size: 1.2rem;
+    font-size: 1rem;
     list-style: none;
     color: white;
     cursor: pointer;
-    padding: var(--sp-400) 0;
+    padding: var(--sp-400) 0 29px 0;
+    border-bottom: 3px solid transparent; 
+    transition: border-color 0.5s ease;
+}
+
+.nav-list li:hover {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.nav-list li.active {
+    border-bottom: 3px solid var(--white);
+    /* You can remove the hover effect for active elements */
+}
+
+.nav-list li.active:hover {
+    border-bottom: 3px solid var(--white); /* Maintain the active border on hover */
 }
 .page-content-container{
     width: 100%;
