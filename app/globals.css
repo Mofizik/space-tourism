@@ -1,21 +1,203 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap');
+html{
+    font-family: var(--font-barlow-condensed), sans-serif;
+}
+.bellefair-regular {
+    font-family: var(--font-bellefair), serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --blue-900: #0B0D17;
+  --blue-300: #D0D6F9;
+  --white: #FFFFFF;
+  --sp-1600: 128px; /* spacing */
+  --sp-1200: 96px;
+  --sp-1000: 80px;
+  --sp-800: 64px;
+  --sp-600: 48px;
+  --sp-500: 40px;
+  --sp-400: 32px;
+  --sp-300: 24px;
+  --sp-200: 16px;
+  --sp-100: 8px;
+  --sp-50: 4px;
+  --sp-25: 2px;
+  --font-bellefair: 'Bellefair', serif;
+  --font-barlow-condensed: 'Barlow Condensed', sans-serif;
+  --font-barlow: 'Barlow', sans-serif;
+}
+.home-screen{
+    background-image: url(../public/assets/home/background-home-desktop.jpg);
+}
+.body{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.bg{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--sp-400);
+    position: relative;
+}
+.logo-container{
+    width: 51%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+}
+.logo{
+    margin: 0 var(--sp-600);
+}
+.line{
+    width: 100%;
+    z-index: 1000;
+    height: 1px;
+    background-color: white
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.nav{
+    width: 51%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0 var(--sp-800);
+    position: relative;
+    margin-left: auto;
+
+}
+.nav-list{
+    display: flex;
+    gap: 32px;
+}
+.nav-list li{
+    font-family: var(--font-barlow-condensed);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 200;
+    font-size: 1.2rem;
+    list-style: none;
+    color: white;
+    cursor: pointer;
+    padding: var(--sp-400) 0;
+}
+.page-content-container{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.page-content-center{
+    width: 100%;
+    max-width: 1120px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: var(--sp-1600) 0;
+    display: flex;
+    justify-content: space-between;
+}
+.slogan{
+    width: 50%;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.text-preset-1{
+    font-family: var(--font-bellefair);
+    font-weight: 400;
+    font-size: 9rem;
+    color: white;
+    margin-bottom: var(--sp-400);
+}
+.text-preset-2{
+    font-family: var(--font-bellefair);
+    font-weight: 400;
+    font-size: 100px;
+    color: white;
+    margin-bottom: var(--sp-400);
+}
+.text-preset-3{
+    font-family: var(--font-bellefair);
+    font-weight: 400;
+    font-size: 56px;
+    color: white;
+    margin-bottom: var(--sp-400);
+}
+.text-preset-4{
+    font-family: var(--font-bellefair);
+    font-weight: 400;
+    font-size: 32px;
+    color: white;
+}
+.text-preset-5{
+    font-family: var(--font-barlow-condensed);
+    font-weight: 200;
+    font-size: 1.75rem;
+    color: var(--blue-300);
+    letter-spacing: 4px;
+}
+
+.description{
+    font-family: var(--font-barlow);
+    font-weight: 200;
+    font-size: 1rem;
+    color: var(--blue-300);
+}
+.explore-container{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+.explore{
+    width: 272px;
+    height: 272px;
+    border-radius: 50%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.explore:hover::after{
+    content: "";
+    position: absolute;
+    width: 272px;
+    border: 184px var(--white) solid;
+    aspect-ratio: 1;
+    background-color: var(--white);
+    opacity: 0.2;
+    border-radius: 50%;
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+.explore::after {
+    content: "";
+    position: absolute;
+    width: 272px;
+    border: 184px var(--white) solid;
+    aspect-ratio: 1;
+    background-color: var(--white);
+    opacity: 0;
+    border-radius: 50%;
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+.black{
+    color: black
 }
