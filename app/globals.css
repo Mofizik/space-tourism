@@ -34,6 +34,10 @@ html{
 .home-screen{
     background-image: url(../public/assets/home/background-home-desktop.jpg);
 }
+.destination-screen{
+    background-image: url(../public/assets/destination/background-destination-desktop.jpg);
+}
+
 .body{
     width: 100%;
     background-color: black;
@@ -124,9 +128,7 @@ html{
     max-width: 1120px;
     height: 100%;
     box-sizing: border-box;
-    padding: var(--sp-1600) 0;
-    display: flex;
-    justify-content: space-between;
+
 }
 .slogan{
     width: 50%;
@@ -166,7 +168,9 @@ html{
     color: var(--blue-300);
     letter-spacing: 4px;
 }
-
+.white{
+    color: var(--white);
+}
 .description{
     font-family: var(--font-barlow);
     font-weight: 200;
