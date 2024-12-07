@@ -128,7 +128,6 @@ html{
     max-width: 1120px;
     height: 100%;
     box-sizing: border-box;
-
 }
 .slogan{
     width: 50%;
@@ -167,6 +166,31 @@ html{
     font-size: 1.75rem;
     color: var(--blue-300);
     letter-spacing: 4px;
+}
+.text-preset-6{
+    font-family: var(--font-bellefair);
+    font-size: 1.75rem;
+    color: var(--white);
+}
+.text-preset-7{
+    font-family: var(--font-barlow-condensed);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--blue-300);
+    letter-spacing: 2px;
+}
+.text-preset-8{
+    font-family: var(--font-barlow-condensed);
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+.text-preset-9{
+    font-family: var(--font-barlow);
+    font-size: 18px;
+    line-height: 180%;
+    color: var(--blue-300);
 }
 .white{
     color: var(--white);
@@ -220,3 +244,20 @@ html{
 .black{
     color: black
 }
+.dest-list{
+    display: flex;
+    gap: var(--sp-400);
+}
+.dest-list li{
+    list-style: none;
+    height: 32px;
+    border-bottom: 3px solid transparent; 
+    transition: border-color 0.5s ease;
+    cursor: pointer;
+}
+.dest-list li:hover{
+    border-bottom: 3px solid var(--white);
+}
+.dest-list .active{
+    border-bottom: 3px solid var(--white);
+} 
