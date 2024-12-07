@@ -27,7 +27,7 @@ const Content = () => {
                 </div>
                 <div className={"h-full box-border flex justify-between gap-8 "}>
                     <div className={"w-1/2 h-full flex align-center justify-center"}>
-                        <img src={data[0].images.webp} alt={data[0].name} className={"object-contain aspect-square"} style={{width: '480px'}}/>
+                        <img src={data[active].images.png} alt={data[active].name} className={"object-contain aspect-square"} style={{width: '480px'}}/>
                     </div>  
                     <div className={"w-1/2 h-full flex flex-col justify-center"}>
                         <div style={{height: '480px'}}>
