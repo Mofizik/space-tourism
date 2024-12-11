@@ -11,7 +11,7 @@ const Header = ({currentPage}) => {
             <ul className="nav-list">
                 <li className={currentPage === "home" ? "active" : ""}> <a href="/"> <span>00</span> Home</a></li>
                 <li className={currentPage === "destination" ? "active" : ""}> <a href="/destination"> <span>01</span> Destination</a></li>
-                <li className={currentPage === "crew" ? "active" : ""}> <a href="#"> <span>02</span> Crew</a></li>
+                <li className={currentPage === "crew" ? "active" : ""}> <a href="/crew"> <span>02</span> Crew</a></li>
                 <li className={currentPage === "technology" ? "active" : ""}> <a href="#"> <span>03</span> Technology</a></li>
             </ul>
         </nav>
