@@ -40,6 +40,9 @@ html{
 .crew-screen{
     background-image: url(../public/assets/crew/background-crew-desktop.jpg);
 }
+.technology-screen{
+    background-image: url(../public/assets/technology/background-technology-desktop.jpg);
+}
 .body{
     width: 100%;
     background-color: black;
@@ -281,4 +284,35 @@ html{
     max-height: 676px;
     object-fit: contain;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0));
+}
+.technology-image{
+    width: 100%;
+    max-width: 608px;
+    display: flex;
+    align-items: center;
+}
+.technology-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.technology-list-item{
+    list-style: none;
+    width: 80px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.technology-list-item.active{
+    border: 1px solid var(--white);
+    background-color: var(--white);
+}
+.technology-list-item.active .text-preset-4{
+    color: var(--blue-900);
 }
