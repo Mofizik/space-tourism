@@ -249,6 +249,11 @@ html{
 .black{
     color: black
 }
+.content-box{
+    display: flex;
+    align-items: center;
+    gap: 99px;
+}
 .dest-list{
     display: flex;
     gap: var(--sp-400);

@@ -1,9 +1,10 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const Content = () => {
     const [data, setData] = useState(null);
     const [active, setActive] = useState(0);
+    const containerRef = useRef(null);
     useEffect(() => {
         fetch('/data.json')
             .then(res => res.json())
@@ -26,8 +27,17 @@ const Content = () => {
                     </h3>
                 </div>
                 <div className={"h-full box-border flex justify-between gap-8 "}>
-                    <div className={"w-1/2 h-full flex align-center justify-center"}>
-                        <img src={data[active].images.png} alt={data[active].name} className={"object-contain aspect-square"} style={{width: '480px'}}/>
+                    <div ref={containerRef} className={"w-1/2 h-full flex flex-col justify-center"} style={
+                        {
+                            overflowX: 'scroll',
+                            scrollBehavior: 'smooth'
+                        }
+                    }>
+                        <div className={"content-box"}>
+                            {data.map((item, index) => (
+                                <img key={index} src={item.images.webp} alt={item.name} className={`dest-image ${index === active ? 'active' : ''}`} />
+                            ))}
+                        </div>
                     </div>  
                     <div className={"w-1/2 h-full flex flex-col justify-center"}>
                         <div style={{height: '480px'}}>
