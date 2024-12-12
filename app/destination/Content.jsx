@@ -1,7 +1,10 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 
+const imageWidth = 544;
 const Content = () => {
+    const [scrollPosition, setScrollPosition] = useState(0);
+
     const [data, setData] = useState(null);
     const [active, setActive] = useState(0);
     const containerRef = useRef(null);
@@ -16,7 +19,13 @@ const Content = () => {
     if (!data || data.length === 0) {
         return <div>Loading...</div>; // Show loading or empty state
     }
+    const handleScroll = (scrollAmount) => {
+        const newScrollPosition = scrollPosition + scrollAmount;
+        
+        setScrollPosition(newScrollPosition);
 
+        containerRef.current.scrollLeft = newScrollPosition;
+    };
     return (
         <div className="page-content-container">
             <div className="page-content-center flex flex-col">
@@ -35,7 +44,7 @@ const Content = () => {
                     }>
                         <div className={"content-box"}>
                             {data.map((item, index) => (
-                                <img key={index} src={item.images.webp} alt={item.name} className={`dest-image ${index === active ? 'active' : ''}`} />
+                                <img key={index} src={item.images.webp} alt={item.name} className={`dest-image ${index === active ? 'active' : ''}`} style={{width: "480px", height: "480px"}}/>
                             ))}
                         </div>
                     </div>  
@@ -46,7 +55,10 @@ const Content = () => {
                                     <li
                                         key={index}
                                         className={`text-preset-8 ${index === active ? 'active' : ''}`}
-                                        onClick={() => setActive(index)}
+                                        onClick={() => 
+                                            {setActive(index)
+                                             handleScroll(imageWidth * (index - active))
+                                            }}
                                     >
                                         {item.name}
                                     </li>

@@ -252,7 +252,10 @@ html{
 .content-box{
     display: flex;
     align-items: center;
-    gap: 99px;
+    gap: 4rem;
+}
+.content-box :last-child{
+    margin-right: 4rem;
 }
 .dest-list{
     display: flex;
