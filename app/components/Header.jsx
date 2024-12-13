@@ -5,14 +5,14 @@ const Header = ({currentPage}) => {
     <div className="header">
         <div className="logo-container">
             <img src="./assets/shared/logo.svg" alt="logo" className='logo'/>
-            <hr className="line"></hr>
+            <hr className="line hidden tablet:block"></hr>
         </div>
         <nav className='nav'>
             <ul className="nav-list">
-                <li className={currentPage === "home" ? "active" : ""}> <a href="/"> <span>00</span> Home</a></li>
-                <li className={currentPage === "destination" ? "active" : ""}> <a href="/destination"> <span>01</span> Destination</a></li>
-                <li className={currentPage === "crew" ? "active" : ""}> <a href="/crew"> <span>02</span> Crew</a></li>
-                <li className={currentPage === "technology" ? "active" : ""}> <a href="/technology"> <span>03</span> Technology</a></li>
+                <li className={currentPage === "home" ? "active" : ""}> <a href="/"> <span>{currentPage === "home" ? "" : "00"}</span> Home</a></li>
+                <li className={currentPage === "destination" ? "active" : ""}> <a href="/destination"> <span>{currentPage === "destination" ? "" : "01"}</span> Destination</a></li>
+                <li className={currentPage === "crew" ? "active" : ""}> <a href="/crew"> <span>{currentPage === "crew" ? "" : "02"}</span> Crew</a></li>
+                <li className={currentPage === "technology" ? "active" : ""}> <a href="/technology"> <span>{currentPage === "technology" ? "" : "03"}</span> Technology</a></li>
             </ul>
         </nav>
     </div>

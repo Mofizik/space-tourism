@@ -4,7 +4,7 @@ import data from './data'
 const Content = () => {
   const [active, setActive] = useState(0);
   return (
-    <div className="w-full box-border flex content-center justify-end flex-grow">
+    <div className="w-full box-border flex content-center justify-center flex-grow">
         <div className="w-full max-w-7xl h-full box-border gap-8 flex">
             <div className="w-full flex flex-col justify-center">
                     <div className="flex gap-16">
