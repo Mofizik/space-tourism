@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Header = ({currentPage}) => {
@@ -9,10 +10,10 @@ const Header = ({currentPage}) => {
         </div>
         <nav className='nav'>
             <ul className="nav-list">
-                <li className={currentPage === "home" ? "active" : ""}> <a href="/"> <span>{currentPage === "home" ? "" : "00"}</span> Home</a></li>
-                <li className={currentPage === "destination" ? "active" : ""}> <a href="/destination"> <span>{currentPage === "destination" ? "" : "01"}</span> Destination</a></li>
-                <li className={currentPage === "crew" ? "active" : ""}> <a href="/crew"> <span>{currentPage === "crew" ? "" : "02"}</span> Crew</a></li>
-                <li className={currentPage === "technology" ? "active" : ""}> <a href="/technology"> <span>{currentPage === "technology" ? "" : "03"}</span> Technology</a></li>
+                <li className={currentPage === "home" ? "active" : ""}> <Link href="/"> <span>{currentPage === "home" ? "" : "00"}</span> Home</Link></li>
+                <li className={currentPage === "destination" ? "active" : ""}> <Link href="/destination"> <span>{currentPage === "destination" ? "" : "01"}</span> Destination</Link></li>
+                <li className={currentPage === "crew" ? "active" : ""}> <Link href="/crew"> <span>{currentPage === "crew" ? "" : "02"}</span> Crew</Link></li>
+                <li className={currentPage === "technology" ? "active" : ""}> <Link href="/technology"> <span>{currentPage === "technology" ? "" : "03"}</span> Technology</Link></li>
             </ul>
         </nav>
     </div>
