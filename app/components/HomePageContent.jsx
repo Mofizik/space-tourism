@@ -3,7 +3,7 @@ import Link from 'next/link'
 const HomePageContent = () => {
   return (
     <div className="page-content-container">
-        <div className={"page-content-center py-32 flex desktop:justify-between home-page"}>
+        <div className={"page-content-center py-32 flex desktop:justify-between home-page content-center"}>
             <div className={"slogan desktop:mt-auto"}>
                 <h3 className='text-preset-5'>SO, YOU WANT TO TRAVEL TO</h3>
                 <h1 className='text-preset-1'>SPACE</h1>  

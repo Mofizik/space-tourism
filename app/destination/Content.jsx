@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 
-const imageWidth = window.innerWidth > 1024 ? 544 : (window.innerWidth - 80);
+const imageWidth = window.innerWidth > 1024 ? 528 : (window.innerWidth - 80);
 const Content = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [data, setData] = useState(null);
