@@ -42,7 +42,7 @@ const Content = () => {
         <div className="page-content-container">
             <div className="page-content-center flex flex-col p-10">
                 <div className="mt-auto w-full">
-                    <h3 className="text-preset-5 white mb-6 desktop:mb-0">
+                    <h3 className="pick-dest text-preset-5 white mb-6 desktop:mb-0">
                         <span className="opacity-50 font-medium mr-4">01</span>
                         PICK YOUR DESTINATION
                     </h3>
@@ -95,7 +95,7 @@ const Content = () => {
                                     {data[active].description}
                                 </p>
                                 {window.innerWidth < 900 ? <hr className='opacity-25 mb-6'></hr> : null}
-                                <div className="flex justify-between">
+                                <div className="flex flex-col desktop:flex-row justify-between">
                                     <div>
                                         <h3 className="text-center desktop:text-left text-preset-5">AVG. DISTANCE</h3>
                                         <h2 className="text-center desktop:text-left text-preset-6 uppercase desktop:normal-case">{data[active].distance}</h2>
