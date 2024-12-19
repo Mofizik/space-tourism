@@ -16,7 +16,7 @@ const Content = () => {
             <div className={"h-full box-border flex flex-col desktop:flex-row justify-between gap-8"}>  
                <div className="w-full desktop:w-1/2 flex flex-col justify-center max-w-lg mx-auto desktop:mx-0">
                     <div className="mb-8 desktop:mb-0">
-                        <div className="text-center desktop:text-left text-preset-4 uppercase opacity-50">{data[active].role}</div>
+                        <div className="text-center desktop:text-left text-preset-4 uppercase crew-role">{data[active].role}</div>
                         <div className="text-center desktop:text-left text-preset-3 uppercase">
                             {data[active].name}
                         </div>

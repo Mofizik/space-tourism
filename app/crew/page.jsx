@@ -4,7 +4,7 @@ import Content from "./Content";
 const page = () => {
   return (
     <div className="body">
-      <div className="bg crew-screen">
+      <div className="bg crew-screen relative">
         <Header currentPage="crew" />
         <Content />
       </div>

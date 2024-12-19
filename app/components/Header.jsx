@@ -1,19 +1,42 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 
 const Header = ({currentPage}) => {
+  const [open, setOpen] = useState(window.innerWidth > 672 ? true : false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 672 ? true : false);
+  useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 672);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+}, []);
   return (
     <div className="header">
-        <div className="logo-container">
+        <div className="logo-container" style={{width : open && isMobile ? "auto" : ""}}>
             <img src="./assets/shared/logo.svg" alt="logo" className='logo'/>
-            <hr className="line hidden tablet:block"></hr>
+            <hr className="line hidden desktop:block"></hr>
         </div>
-        <nav className='nav'>
-            <ul className="nav-list">
-                <li className={currentPage === "home" ? "active" : ""}> <Link href="/"> <span>{currentPage === "home" ? "" : "00"}</span> Home</Link></li>
-                <li className={currentPage === "destination" ? "active" : ""}> <Link href="/destination"> <span>{currentPage === "destination" ? "" : "01"}</span> Destination</Link></li>
-                <li className={currentPage === "crew" ? "active" : ""}> <Link href="/crew"> <span>{currentPage === "crew" ? "" : "02"}</span> Crew</Link></li>
-                <li className={currentPage === "technology" ? "active" : ""}> <Link href="/technology"> <span>{currentPage === "technology" ? "" : "03"}</span> Technology</Link></li>
+        <nav className='nav' style={
+          {
+            width : open && isMobile ? "66%" : "",
+            backgroundColor: open && isMobile ? "rgba(11, 13, 23, 0.15)" : "transparent",
+            backdropFilter: open ? "blur(40px)" : "none"
+          }
+          
+          }>
+           <button className="tablet:hidden" onClick={() => setOpen(!open)}>
+                <img src={open ? "./assets/shared/icon-close.svg" : "./assets/shared/icon-hamburger.svg"} alt="hamburger" className='hamburger'></img>
+            </button>
+            <ul className="nav-list hidded tablet:flex" style={{display: open ? "flex" : "none"}}>
+                <li className={currentPage === "home" ? "active" : ""}> <Link href="/"> <span>00</span> Home</Link></li>
+                <li className={currentPage === "destination" ? "active" : ""}> <Link href="/destination"><span>01</span> Destination</Link></li>
+                <li className={currentPage === "crew" ? "active" : ""}> <Link href="/crew"> <span>02</span> Crew</Link></li>
+                <li className={currentPage === "technology" ? "active" : ""}> <Link href="/technology"> <span>03</span> Technology</Link></li>
             </ul>
         </nav>
     </div>
