@@ -1,20 +1,38 @@
-'use client'
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 
-const imageWidth = window.innerWidth > 1024 ? 528 : (window.innerWidth - 80);
 const Content = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [data, setData] = useState(null);
     const [active, setActive] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false); // State for animation control
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(0);
     const containerRef = useRef(null);
+    const [imageWidth, setImageWidth] = useState(0);
 
     useEffect(() => {
+        // Fetch data
         fetch('/data.json')
-            .then(res => res.json())
-            .then(data => setData(data.destinations))
-            .catch(err => console.log(err));
+            .then((res) => res.json())
+            .then((data) => setData(data.destinations))
+            .catch((err) => console.error(err));
+    }, []);
+
+    useEffect(() => {
+        // Set initial window width and image width on mount
+        if (typeof window !== 'undefined') {
+            setWindowWidth(window.innerWidth);
+            setImageWidth(window.innerWidth > 1024 ? 528 : window.innerWidth - 80);
+
+            // Update on resize
+            const handleResize = () => {
+                setWindowWidth(window.innerWidth);
+                setImageWidth(window.innerWidth > 1024 ? 528 : window.innerWidth - 80);
+            };
+
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
     }, []);
 
     if (!data || data.length === 0) {
@@ -24,7 +42,9 @@ const Content = () => {
     const handleScroll = (scrollAmount) => {
         const newScrollPosition = scrollPosition + scrollAmount;
         setScrollPosition(newScrollPosition);
-        containerRef.current.scrollLeft = newScrollPosition;
+        if (containerRef.current) {
+            containerRef.current.scrollLeft = newScrollPosition;
+        }
     };
 
     const handleChangeActive = (index) => {
@@ -67,7 +87,6 @@ const Content = () => {
                             ))}
                             <div className="opacity-0">f</div>
                         </div>
-                        
                     </div>
                     <div className="w-full desktop:w-1/2 h-full flex flex-col justify-center">
                         <div style={{ height: '480px' }}>
@@ -94,15 +113,25 @@ const Content = () => {
                                 <p className="text-center desktop:text-left text-preset-9 mb-8">
                                     {data[active].description}
                                 </p>
-                                {window.innerWidth < 900 ? <hr className='opacity-25 mb-6'></hr> : null}
+                                {windowWidth < 900 ? (
+                                    <hr className="opacity-25 mb-6"></hr>
+                                ) : null}
                                 <div className="flex flex-col desktop:flex-row justify-between">
                                     <div>
-                                        <h3 className="text-center desktop:text-left text-preset-5">AVG. DISTANCE</h3>
-                                        <h2 className="text-center desktop:text-left text-preset-6 uppercase desktop:normal-case">{data[active].distance}</h2>
+                                        <h3 className="text-center desktop:text-left text-preset-5">
+                                            AVG. DISTANCE
+                                        </h3>
+                                        <h2 className="text-center desktop:text-left text-preset-6 uppercase desktop:normal-case">
+                                            {data[active].distance}
+                                        </h2>
                                     </div>
                                     <div>
-                                        <div className="text-center desktop:text-left text-preset-5">EST. TRAVEL TIME</div>
-                                        <div className="text-center desktop:text-left text-preset-6 uppercase desktop:normal-case">{data[active].travel}</div>
+                                        <div className="text-center desktop:text-left text-preset-5">
+                                            EST. TRAVEL TIME
+                                        </div>
+                                        <div className="text-center desktop:text-left text-preset-6 uppercase desktop:normal-case">
+                                            {data[active].travel}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
