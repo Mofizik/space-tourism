@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from "../components/Header";
 import Content from "./Content";
+import Header from '../components/Header';
 const page = () => {
   return (
     <div className="body">

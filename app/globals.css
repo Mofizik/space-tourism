@@ -54,7 +54,8 @@ body{
 }
 .bg{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -299,9 +300,16 @@ body{
     width: 15px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.25);
     cursor: pointer;
     z-index: 1;
+    transition: background-color 0.3s ease;
+}
+.crew-list-item.active{
+    background-color: var(--white);
+}
+.crew-list-item:hover{
+    background-color: var(--white);
 }
 .crew-image{
     width: 100%;

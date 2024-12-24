@@ -7,7 +7,7 @@ const Content = () => {
   return (
     <div className="page-content-container">
         <div className="page-content-center flex flex-col p-10 pb-0">
-            <div className={"mt-auto w-full"}>
+            <div className={"mt-auto    -full"}>
                 <h3 className={'text-preset-5 white mb-6 desktop:mb-0 uppercase'}>
                     <span className={"opacity-50 font-medium mr-4"}>02</span>
                     meet your crew
