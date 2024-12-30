@@ -1,22 +1,13 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-
+import data from './data';
 const Content = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
-    const [data, setData] = useState(null);
     const [active, setActive] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false); // State for animation control
     const [windowWidth, setWindowWidth] = useState(0);
     const containerRef = useRef(null);
     const [imageWidth, setImageWidth] = useState(0);
-
-    useEffect(() => {
-        // Fetch data
-        fetch('/data.json')
-            .then((res) => res.json())
-            .then((data) => setData(data.destinations))
-            .catch((err) => console.error(err));
-    }, []);
 
     useEffect(() => {
         // Set initial window width and image width on mount
