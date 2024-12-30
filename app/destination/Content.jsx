@@ -80,7 +80,7 @@ const Content = () => {
                         </div>
                     </div>
                     <div className="w-full desktop:w-1/2 h-full flex flex-col justify-center">
-                        <div>
+                        <div style={{minHeight: '480px'}}>
                             <div className="dest-list">
                                 {data.map((item, index) => (
                                     <li
