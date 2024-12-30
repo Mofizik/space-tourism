@@ -52,8 +52,8 @@ const Content = () => {
     return (
         <div className="page-content-container">
             <div className="page-content-center flex flex-col p-10">
-                <div className="mt-auto w-full">
-                    <h3 className="pick-dest text-preset-5 white mb-6 desktop:mb-0">
+                <div className="w-full">
+                    <h3 className="pick-dest text-preset-5 white mb-6 desktop:mb-auto">
                         <span className="opacity-50 font-medium mr-4">01</span>
                         PICK YOUR DESTINATION
                     </h3>
@@ -61,7 +61,7 @@ const Content = () => {
                 <div className="h-full box-border flex flex-col desktop:flex-row justify-between gap-8">
                     <div
                         ref={containerRef}
-                        className="w-full desktop:w-1/2 h-full flex flex-col justify-center"
+                        className="w-full min-h-full desktop:w-1/2 h-full flex flex-col justify-center"
                         style={{
                             overflowX: 'scroll',
                             scrollBehavior: 'smooth',
@@ -80,7 +80,7 @@ const Content = () => {
                         </div>
                     </div>
                     <div className="w-full desktop:w-1/2 h-full flex flex-col justify-center">
-                        <div style={{ height: '480px' }}>
+                        <div>
                             <div className="dest-list">
                                 {data.map((item, index) => (
                                     <li
